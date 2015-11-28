@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <title>ES6 LEARNING</title>
+      <link type='stylesheet' href='style.css' rel='stylesheet'>
+  </head>
+  <body>
+        <center><p><h1>ES6 LEARNING</h1></p>
+          <hr>
+        
+        <h4>Convert Money from US Dollars to Different Currencies</h4>
+        <div id='inputGroup'>
+            <input type='text' id='money' name='money' placeholder='Enter amount in US Dollars'>
+            <button id="myBtnPound">British Pound (&#163)</button>
+            <button id="myBtnYen">Chinese Yuan (&#65509)</button>
+            <button id="myBtnKwacha">Malawi Kwacha (MKw)</button>
+
+        </div>
+
+        <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+        <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+
+        <script type="module" >
+          class change {
+            constructor() {
+             
+            }
+
+            myFunctionPound()
+              {
+                   var amountUSDollar = document.getElementById('money').value;
+                   if(amountUSDollar==""||isNaN(amountUSDollar))
+                    {
+                      alert('Enter some real amount in Dollars');
+                    }
+                  else
+                  {
+                      var amountPound = (amountUSDollar*0.66/1).toFixed(2);
+                      var poundSign=`\xA3`;
+                      document.getElementById("demo").innerHTML = ` The equivalent amount of $${amountUSDollar}  is ${poundSign}${amountPound}`;  
+                  }
+              }
+
+
+              myFunctionYen() 
+           {
+                var amountUSDollar = document.getElementById('money').value;
+                  if(amountUSDollar==""||isNaN(amountUSDollar))
+                  {
+                    alert('Enter some real amount in Dollars');
+                  }
+                  else
+                  {
+                    
+                    var amountChineseYuan = (amountUSDollar*6.39/1).toFixed(2);
+                    var yuenSign = `\xA5`;
+                    document.getElementById("demo").innerHTML = ` The equivalent amount of $${amountUSDollar}  is ${yuenSign}${amountChineseYuan}`; 
+                 }
+          }
+
+
+              myFunctionKwacha()
+         {
+              var amountUSDollar = document.getElementById('money').value;
+                 if(amountUSDollar==""||isNaN(amountUSDollar))
+                  {
+                    alert('Enter some real amount in Dollars');
+                  }
+                  else
+                  {
+                    
+                  
+                  var amountMalawiKwacha = (amountUSDollar*593.05/1).toFixed(2);
+                  var kwachaSign = `MKw`;
+                  document.getElementById("demo").innerHTML = ` The equivalent amount of $${amountUSDollar}  is ${kwachaSign}  ${amountMalawiKwacha}`;
+              }
+        }
+
+          };
+
+                var currencyChanger = new change();
+               document.querySelector("#myBtnPound").addEventListener("click", evt=>currencyChanger.myFunctionPound(evt),false);
+
+              document.querySelector("#myBtnYen").addEventListener("click", evt=>currencyChanger.myFunctionYen(evt),false);
+              document.querySelector("#myBtnKwacha").addEventListener("click", evt=>currencyChanger.myFunctionKwacha(evt),false);
+          
+         
+          
+        </script>
+
+        <h4>Results</h4>
+        <p id="demo"></p>
+        </center>
+  </body>
+</html>
